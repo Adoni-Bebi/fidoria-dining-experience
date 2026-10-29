@@ -8,3 +8,4 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+- All restaurant content (menu, contact, hours, socials, gallery) lives in src/data/site.ts; contact buttons render disabled until a value is set — keeps owner edits in one place.
