@@ -8,6 +8,13 @@
       "when": 1793364230917,
       "tag": "0000_owner_menu_management",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793364519119,
+      "tag": "0001_designated_owner_activation",
+      "breakpoints": true
     }
   ]
 }

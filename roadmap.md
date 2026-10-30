@@ -1,6 +1,7 @@
 # Owner menu management
-- [ ] Add secure owner permissions and persistent meals.
-- [ ] Add login, password changes, and recovery.
-- [ ] Add meal editor with file, camera, and internet-link photos.
-- [ ] Connect public menu and featured meals; verify flows.
-- [ ] Activate designated owner account (requires owner's email).
+- [x] Add secure owner permissions and persistent meals.
+- [x] Add login, password changes, and recovery.
+- [x] Add meal editor with file, camera, and internet-link photos.
+- [x] Connect public menu and featured meals; verify flows.
+- [ ] Activate designated owner account (invitation configured; user must create and confirm account).
+- [x] Add secure email change for buyer handover.
