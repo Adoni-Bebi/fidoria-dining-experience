@@ -56,6 +56,18 @@ export type Database = {
         }
         Relationships: []
       }
+      owner_invitations: {
+        Row: {
+          email: string
+        }
+        Insert: {
+          email: string
+        }
+        Update: {
+          email?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
