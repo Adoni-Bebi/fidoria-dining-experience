@@ -9,6 +9,8 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Get to know Fidoria Noodles & Chicken, a noodle and chicken restaurant in Adama, Oromia." },
       { property: "og:title", content: "About Fidoria Noodles & Chicken" },
       { property: "og:description", content: "A noodle and chicken restaurant in Adama, Ethiopia." },
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
   }),
   component: About,

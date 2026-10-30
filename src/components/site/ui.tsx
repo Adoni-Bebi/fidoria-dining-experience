@@ -61,11 +61,11 @@ export function MenuCard({ item }: { item: MenuItem }) {
     <article className="group overflow-hidden rounded-3xl bg-card shadow-soft transition-all duration-500 hover:-translate-y-1.5">
       <div className="relative aspect-[4/3] overflow-hidden">
         <img src={item.image} alt={item.name.replace("Sample: ", "")} loading="lazy" width={1024} height={1024} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-        <div className="absolute left-4 top-4"><span className="rounded-full bg-charcoal/80 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-gold backdrop-blur">Sample dish</span></div>
+        {(item.isSample ?? item.name.startsWith('Sample:')) && <div className="absolute left-4 top-4"><span className="rounded-full bg-charcoal/80 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-gold backdrop-blur">Sample dish</span></div>}
       </div>
       <div className="p-6">
-        <div className="flex items-start justify-between gap-4">
-          <h3 className="text-xl font-medium">{item.name}</h3>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <h3 className="min-w-0 break-words text-xl font-medium">{item.name}</h3>
           <span className="shrink-0 font-display text-lg text-primary">{item.price ?? "ETB —"}</span>
         </div>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>

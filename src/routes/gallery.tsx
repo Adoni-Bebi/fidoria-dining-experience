@@ -9,6 +9,8 @@ export const Route = createFileRoute("/gallery")({
       { name: "description", content: "Photos of noodles, chicken, sides and drinks from Fidoria in Adama." },
       { property: "og:title", content: "Gallery — Fidoria Noodles & Chicken" },
       { property: "og:description", content: "Noodles, chicken, sides and drinks — in pictures." },
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
   }),
   component: GalleryPage,

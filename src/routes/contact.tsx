@@ -10,6 +10,8 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Find Fidoria Noodles & Chicken in Adama, Oromia, Ethiopia — directions, phone and opening hours." },
       { property: "og:title", content: "Visit Fidoria in Adama" },
       { property: "og:description", content: "Directions and contact details for Fidoria Noodles & Chicken." },
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
   }),
   component: Contact,

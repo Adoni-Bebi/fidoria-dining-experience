@@ -1,23 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { gallery, highlights, images, menu, site } from "@/data/site";
+import { gallery, highlights, images, site } from "@/data/site";
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { groupMeals, publicMenuOptions } from '@/lib/menu-query';
 import { ButtonLink, Eyebrow, MenuCard, PlaceholderTag, SectionHeading } from "@/components/site/ui";
 import { ContactBlock } from "@/components/site/ContactBlock";
 import { DemoBanner } from "@/components/site/DemoBanner";
 
 export const Route = createFileRoute("/")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(publicMenuOptions),
   head: () => ({
     meta: [
       { title: "Fidoria Noodles & Chicken — Adama, Ethiopia" },
       { name: "description", content: "Fidoria Noodles & Chicken in Adama, Oromia. Explore our noodles, chicken dishes, sides and drinks." },
       { property: "og:title", content: "Fidoria Noodles & Chicken — Adama" },
       { property: "og:description", content: "Noodles and chicken in Adama, Oromia, Ethiopia." },
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
   }),
   component: Home,
 });
 
 function Home() {
+  const { data } = useSuspenseQuery(publicMenuOptions);
+  const menu = groupMeals(data);
   const featured = menu.flatMap((c) => (c.items[0] ? [{ category: c.title, item: c.items[0] }] : []));
   return (
     <>
