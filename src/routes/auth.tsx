@@ -29,8 +29,13 @@ function Auth() {
         setMessage('Account created. The owner must approve it before you can change the menu.');
         setMode('login');
       } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
+        const role = await supabase.rpc('has_role', { _user_id: data.user.id, _role: 'admin' });
+        if (role.data !== true) {
+          await supabase.auth.signOut();
+          throw new Error('Your account is waiting for the owner\'s approval. You can sign in once the owner approves you.');
+        }
         await navigate({ to: '/admin' });
       }
     } catch (error) { setMessage(error instanceof Error ? error.message : 'Please try again.'); }

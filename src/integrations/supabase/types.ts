@@ -89,6 +89,21 @@ export type Database = {
         }
         Relationships: []
       }
+      restaurant_owner: {
+        Row: {
+          singleton: boolean
+          user_id: string
+        }
+        Insert: {
+          singleton?: boolean
+          user_id: string
+        }
+        Update: {
+          singleton?: boolean
+          user_id?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           id: string
@@ -123,6 +138,7 @@ export type Database = {
         }
         Returns: boolean
       }
+      is_owner: { Args: { _user_id: string }; Returns: boolean }
     }
     Enums: {
       app_role: "admin"
