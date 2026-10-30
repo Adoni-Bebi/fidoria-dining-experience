@@ -29,7 +29,7 @@ export function ButtonLink({ to, href, variant = "primary", children, className 
   return <Link to={to ?? "/"} className={cls}>{children}</Link>;
 }
 
-export function Eyebrow({ children, light }: { children: ReactNode; light?: boolean }) {
+export function Eyebrow({ children, light }: { children: ReactNode; light?: boolean | undefined }) {
   return (
     <p className={cn("mb-4 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em]", light ? "text-gold" : "text-primary")}>
       <span className="h-px w-8 bg-current" aria-hidden />
