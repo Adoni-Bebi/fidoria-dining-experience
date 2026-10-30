@@ -26,7 +26,7 @@ function Auth() {
       } else if (mode === 'signup') {
         const { error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${window.location.origin}/auth` } });
         if (error) throw error;
-        setMessage('Account created. You can sign in now. Only the approved owner account can edit meals.');
+        setMessage('Account created. The owner must approve it before you can change the menu.');
         setMode('login');
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });

@@ -15,6 +15,13 @@
       "when": 1793364519119,
       "tag": "0001_designated_owner_activation",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793367330355,
+      "tag": "0002_owner_approval_requests",
+      "breakpoints": true
     }
   ]
 }
