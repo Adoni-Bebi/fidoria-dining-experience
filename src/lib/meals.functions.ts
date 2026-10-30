@@ -24,7 +24,7 @@ export const getPublicMeals = createServerFn({ method: 'GET' }).handler(async ()
     const signed = await client.storage.from('meal-photos').createSignedUrl(meal.image_path, 3600);
     const signedUrl = signed.data?.signedUrl;
     // The storage request uses the server address; the browser must use its public address.
-    return { ...meal, image_url: signedUrl?.replace(url, import.meta.env.VITE_SUPABASE_URL) ?? null };
+    return { ...meal, image_url: signedUrl?.replace(url, import.meta.env['VITE_SUPABASE_URL']) ?? null };
   }));
 });
 

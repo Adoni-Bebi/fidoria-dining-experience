@@ -36,6 +36,7 @@ export function MealEditor({ meal, categories, onSaved, onCancel }: { meal: Tabl
     }
     const key = meal?.image_key;
     setPreview(key && key in images ? images[key as keyof typeof images] : '');
+    return undefined;
   }, [file, imageUrl, meal]);
   function chooseFile(candidate?: File) {
     if (!candidate) return;
