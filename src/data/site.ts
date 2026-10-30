@@ -45,30 +45,30 @@ export const menu: MenuCategory[] = [
     id: "noodles",
     title: "Signature Noodles",
     items: [
-      { name: "Sample: Spicy Stir-Fried Noodles", description: "Placeholder description — replace with the real dish details.", price: null, image: noodles },
-      { name: "Sample: Chicken Noodle Bowl", description: "Placeholder description — replace with the real dish details.", price: null, image: hero },
+      { name: "Sample: Spicy Stir-Fried Noodles", description: "Placeholder description — replace with the real dish details.", price: 1,800 ETB, image: noodles },
+      { name: "Sample: Chicken Noodle Bowl", description: "Placeholder description — replace with the real dish details.", price: 2,000 ETB, image: hero },
     ],
   },
   {
     id: "chicken",
     title: "Chicken Dishes",
     items: [
-      { name: "Sample: Crispy Fried Chicken", description: "Placeholder description — replace with the real dish details.", price: null, image: chicken },
-      { name: "Sample: Glazed Chicken Wings", description: "Placeholder description — replace with the real dish details.", price: null, image: wings },
+      { name: "Sample: Crispy Fried Chicken", description: "Placeholder description — replace with the real dish details.", price: 3,000 ETB, image: chicken },
+      { name: "Sample: Glazed Chicken Wings", description: "Placeholder description — replace with the real dish details.", price: 2,700 ETB, image: wings },
     ],
   },
   {
     id: "sides",
     title: "Rice & Sides",
     items: [
-      { name: "Sample: Fried Rice with Chicken", description: "Placeholder description — replace with the real dish details.", price: null, image: rice },
+      { name: "Sample: Fried Rice with Chicken", description: "Placeholder description — replace with the real dish details.", price: 2,300 ETB, image: rice },
     ],
   },
   {
     id: "drinks",
     title: "Drinks",
     items: [
-      { name: "Sample: Fresh Juices", description: "Placeholder description — replace with the real drink details.", price: null, image: drinks },
+      { name: "Sample: Fresh Juices", description: "Placeholder description — replace with the real drink details.", price: 500 ETB, image: drinks },
     ],
   },
 ];
