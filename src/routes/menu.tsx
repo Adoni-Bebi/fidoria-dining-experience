@@ -1,24 +1,31 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { images, menu } from "@/data/site";
+import { images } from "@/data/site";
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { groupMeals, publicMenuOptions } from '@/lib/menu-query';
 import { MenuCard, PageHero } from "@/components/site/ui";
 import { DemoBanner } from "@/components/site/DemoBanner";
 
 export const Route = createFileRoute("/menu")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(publicMenuOptions),
   head: () => ({
     meta: [
       { title: "Menu — Fidoria Noodles & Chicken, Adama" },
       { name: "description", content: "Browse noodles, chicken dishes, rice and sides, and drinks at Fidoria in Adama." },
       { property: "og:title", content: "Menu — Fidoria Noodles & Chicken" },
       { property: "og:description", content: "Noodles, chicken, rice, sides and drinks in Adama." },
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
   }),
   component: MenuPage,
 });
 
 function MenuPage() {
+  const { data } = useSuspenseQuery(publicMenuOptions);
+  const menu = groupMeals(data);
   return (
     <>
-      <PageHero eyebrow="Our menu" title="Noodles, chicken & more" image={images.noodles} intro="Sample items shown — the full verified menu and prices will be added by the restaurant." />
+      <PageHero eyebrow="Our menu" title="Noodles, chicken & more" image={images.noodles} intro="Explore the menu. Items marked as samples are awaiting restaurant confirmation." />
       <DemoBanner />
       <nav aria-label="Menu categories" className="sticky top-[68px] z-30 border-b bg-background/95 backdrop-blur">
         <ul className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-6 py-4">
@@ -28,6 +35,7 @@ function MenuPage() {
         </ul>
       </nav>
       <div className="mx-auto max-w-7xl space-y-20 px-6 py-20">
+        {!menu.length && <p className="text-muted-foreground">The menu is being updated. Please check back soon.</p>}
         {menu.map((c) => (
           <section key={c.id} id={c.id} className="scroll-mt-40">
             <h2 className="text-4xl font-medium md:text-5xl">{c.title}</h2>

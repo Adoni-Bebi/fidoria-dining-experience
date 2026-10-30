@@ -36,7 +36,7 @@ export const site = {
 export const fallbackMapsUrl =
   "https://www.google.com/maps/search/?api=1&query=Fidoria+Noodles+%26+Chicken+Adama+Ethiopia";
 
-export type MenuItem = { name: string; description: string; price: string | null; image: string };
+export type MenuItem = { name: string; description: string; price: string | null; image: string; isSample?: boolean };
 export type MenuCategory = { id: string; title: string; items: MenuItem[] };
 
 // SAMPLE MENU — placeholders only, not the restaurant's real dishes or prices.

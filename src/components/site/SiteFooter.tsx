@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { navLinks, site } from "@/data/site";
 import { Logo } from "./ui";
 import { SocialLinks } from "./SocialLinks";
+import { OwnerLink } from '@/components/owner/OwnerLink';
 
 export function SiteFooter() {
   return (
@@ -30,6 +31,7 @@ export function SiteFooter() {
       <div className="border-t border-cream/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-6 text-xs md:flex-row md:justify-between">
           <p>© {new Date().getFullYear()} {site.fullName}. All rights reserved.</p>
+          <OwnerLink />
           <p className="text-cream-muted/70">Demonstration website — content pending owner approval.</p>
         </div>
       </div>
