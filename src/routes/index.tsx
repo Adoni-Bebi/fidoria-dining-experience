@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const featured = menu.map((c) => ({ category: c.title, item: c.items[0] }));
+  const featured = menu.flatMap((c) => (c.items[0] ? [{ category: c.title, item: c.items[0] }] : []));
   return (
     <>
       {/* HERO */}
