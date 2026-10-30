@@ -20,7 +20,7 @@ export const Route = createFileRoute('/_authenticated/admin')({
   component: Admin,
 });
 function OwnerError({ error }: ErrorComponentProps) {
-  return <section className="mx-auto max-w-xl px-6 pt-40 pb-24"><h1 className="text-4xl">Owner access</h1><p role="alert" className="mt-6 text-muted-foreground">{error.message}</p><p className="mt-4">The restaurant owner’s account must be approved before meals can be changed.</p><Button asChild variant="outline" className="mt-6"><Link to="/auth">Back to sign in</Link></Button></section>;
+  return <section className="mx-auto max-w-xl px-6 pt-40 pb-24"><h1 className="text-4xl">Owner access</h1><p role="alert" className="mt-6 text-muted-foreground">{error instanceof Error ? error.message : 'Owner access could not be verified.'}</p><p className="mt-4">The restaurant owner’s account must be approved before meals can be changed.</p><Button asChild variant="outline" className="mt-6"><Link to="/auth">Back to sign in</Link></Button></section>;
 }
 function Admin() {
   const { data: meals } = useSuspenseQuery(ownerOptions);

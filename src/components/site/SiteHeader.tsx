@@ -24,7 +24,7 @@ export function SiteHeader() {
   }, []);
 
   return (
-    <header className={cn("fixed inset-x-0 top-0 z-50 transition-all duration-500", scrolled || open ? "bg-charcoal/95 py-3 shadow-soft backdrop-blur" : "py-6")}>
+    <header className={cn("fixed inset-x-0 top-0 z-50 transition-all duration-500", scrolled || open || ['/admin', '/auth', '/reset-password'].includes(pathname) ? "bg-charcoal/95 py-3 shadow-soft backdrop-blur" : "py-6")}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6" aria-label="Main">
         <Logo light />
         <ul className="hidden items-center gap-9 lg:flex">
