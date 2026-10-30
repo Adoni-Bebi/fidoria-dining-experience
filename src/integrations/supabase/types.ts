@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      access_requests: {
+        Row: {
+          created_at: string
+          email: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       meals: {
         Row: {
           category: string
@@ -91,6 +112,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      decide_access_request: {
+        Args: { _approve: boolean; _user_id: string }
+        Returns: undefined
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
