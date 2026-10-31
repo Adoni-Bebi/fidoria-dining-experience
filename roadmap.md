@@ -5,3 +5,5 @@
 - [x] Connect public menu and featured meals; verify flows.
 - [ ] Activate designated owner account (invitation configured; user must create and confirm account).
 - [x] Add secure email change for buyer handover.
+- [ ] Add owner-only permanent admin account deletion and verify safeguards.
+- [ ] Require confirmation emails for all new accounts and simplify account messages.
