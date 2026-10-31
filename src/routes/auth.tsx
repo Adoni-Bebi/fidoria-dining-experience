@@ -35,11 +35,16 @@ function Auth() {
         if (error) throw error;
         setMessage('Check your email for a password reset link.');
       } else if (mode === 'signup') {
-        const { error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${window.location.origin}/auth` } });
+        const { data, error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${window.location.origin}/auth` } });
         if (error) throw error;
-        setConfirmationEmail(email);
+        if (data.session) {
+          await supabase.auth.signOut();
+          setMessage('Account created and waiting for owner approval. Email confirmation has not been enabled by the restaurant yet.');
+        } else {
+          setConfirmationEmail(email);
+          setMessage('');
+        }
         setPassword('');
-        setMessage('');
         setMode('login');
       } else {
         const { data, error } = await supabase.auth.signInWithPassword({ email, password });
