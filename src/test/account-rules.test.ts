@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { requireAccountOwner, requireDeletableAccount, requireConfirmedEmail } from '@/lib/account-rules';
+import { requireAccountOwner, requireDeletableAccount, requireConfirmedEmail, requireVerificationCode, requireVerifiedOwnerEmail } from '@/lib/account-rules';
 
 describe('Account permissions', () => {
   it('allows only the owner to manage accounts, not approved meal admins', () => {
@@ -21,5 +21,15 @@ describe('Account permissions', () => {
   });
   it('requires email confirmation for the owner too, with no email-based exception', () => {
     expect(() => requireConfirmedEmail(undefined)).toThrow();
+  });
+  it('accepts complete numeric codes and rejects incomplete or nonnumeric codes', () => {
+    expect(requireVerificationCode('123456')).toBe('123456');
+    expect(requireVerificationCode('12345678')).toBe('12345678');
+    expect(() => requireVerificationCode('12345')).toThrow();
+    expect(() => requireVerificationCode('abcdef')).toThrow();
+  });
+  it('never reports handover complete while the old email remains on the account', () => {
+    expect(() => requireVerifiedOwnerEmail('original@example.com', 'buyer@example.com')).toThrow();
+    expect(() => requireVerifiedOwnerEmail('buyer@example.com', 'buyer@example.com')).not.toThrow();
   });
 });
