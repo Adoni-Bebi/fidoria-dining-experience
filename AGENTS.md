@@ -14,3 +14,4 @@
 - A service-only owner invitation grants the admin role only after the designated email is confirmed and is consumed once; changing the account email preserves its role for handover.
 - Private meal photos use signed viewing links, and storage write policies require the admin role because public buckets are blocked by workspace policy.
 - Account deletion is an authenticated server action that verifies the singleton owner before dynamically loading the privileged client; never allow owner self-deletion, and retain restaurant meals when deleting an admin.
+- Email verification uses Cloud Auth OTPs, never custom codes; approval requests are recorded by the Auth confirmation lifecycle trigger, and owner handover completes only after Auth reports the verified new email to prevent premature access.

@@ -7,4 +7,6 @@
 - [x] Add secure email change for buyer handover.
 - [x] Add owner-only permanent admin account deletion and verify safeguards.
 - [x] Simplify signup, email confirmation, resend, and account deletion messages.
-- [ ] Enable confirmation emails for all new accounts: owner must turn off Auto-confirm email in More → Users → Auth settings → Email; other hosted security settings cannot be read safely to preserve them automatically.
+- [ ] Add emailed code entry for first-time signup and owner email handover.
+- [ ] Create admin requests only after verified email confirmation.
+- [ ] Activate code emails and confirmation settings; verify signup and handover.

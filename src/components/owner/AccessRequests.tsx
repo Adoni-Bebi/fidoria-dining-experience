@@ -27,7 +27,7 @@ export function AccessRequests() {
     try {
       const { error } = await supabase.rpc('decide_access_request', { _user_id: id, _approve: approve });
       if (error) throw error;
-      await load(); setMessage(approve ? 'Account approved. They can sign in after confirming their email.' : 'Menu access removed. The account still exists.');
+      await load(); setMessage(approve ? 'Account approved. They can now sign in and manage meals.' : 'Menu access removed. The account still exists.');
     } catch (error) { setMessage(error instanceof Error ? error.message : 'The account could not be updated. Please try again.'); }
     finally { setBusy(false); }
   }
@@ -43,7 +43,7 @@ export function AccessRequests() {
   const others = rows.filter(r => r.user_id !== me);
   return <section>
     <h2 className="text-3xl">Manage admin accounts</h2>
-    <p className="mt-2 text-sm text-muted-foreground">New admins must confirm their email and receive your approval before signing in.</p>
+    <p className="mt-2 text-sm text-muted-foreground">These accounts have verified their email. Approve them to allow meal management.</p>
     {message && <p role="status" className="mt-4 text-sm text-primary">{message}</p>}
     <div className="mt-6 divide-y border-y">
       {others.map(r => <div key={r.user_id} className="flex flex-wrap items-center justify-between gap-3 py-4">
