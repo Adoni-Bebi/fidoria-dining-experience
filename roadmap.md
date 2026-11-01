@@ -9,4 +9,4 @@
 - [x] Simplify signup, email confirmation, resend, and account deletion messages.
 - [x] Add emailed code entry for first-time signup and owner email handover.
 - [x] Create admin requests only after verified email confirmation.
-- [ ] Activate code emails and confirmation settings; verify signup and handover.
+- [ ] Activate code emails and confirmation settings; verify signup and handover. Blocked: owner must disable Auto-confirm email in Auth settings and set up an owned sender domain for editable code-email templates; hosted settings and inbox delivery cannot currently be verified.
