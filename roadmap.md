@@ -7,6 +7,6 @@
 - [x] Add secure email change for buyer handover.
 - [x] Add owner-only permanent admin account deletion and verify safeguards.
 - [x] Simplify signup, email confirmation, resend, and account deletion messages.
-- [ ] Add emailed code entry for first-time signup and owner email handover.
-- [ ] Create admin requests only after verified email confirmation.
+- [x] Add emailed code entry for first-time signup and owner email handover.
+- [x] Create admin requests only after verified email confirmation.
 - [ ] Activate code emails and confirmation settings; verify signup and handover.
