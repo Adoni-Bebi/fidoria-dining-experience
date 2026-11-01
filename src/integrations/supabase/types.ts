@@ -131,6 +131,7 @@ export type Database = {
         Args: { _approve: boolean; _user_id: string }
         Returns: undefined
       }
+      email_is_confirmed: { Args: { _user_id: string }; Returns: boolean }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
