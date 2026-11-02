@@ -7,7 +7,7 @@ export function requireDeletableAccount(callerId: string, targetId: string, targ
 }
 
 export function requireConfirmedEmail(confirmedAt: string | null | undefined) {
-  if (!confirmedAt) throw new Error('Verify your email address before signing in. Enter the code sent to your inbox.');
+  if (!confirmedAt) throw new Error('Verify your email address before signing in. Click Verify Email in the email sent to your inbox.');
 }
 
 export function requireVerificationCode(code: string) {
