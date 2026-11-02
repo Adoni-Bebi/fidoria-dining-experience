@@ -10,4 +10,4 @@
 - [x] Add emailed code entry for first-time signup and owner email handover.
 - [x] Create admin requests only after verified email confirmation.
 - [x] Use standard verification emails for new accounts, with resend and confirmation-return messaging; keep admin approval after verification.
-- [ ] Verify hosted email confirmation settings and real inbox delivery. Blocked: hosted confirmation settings cannot be read through available tools; if Auto-confirm email is enabled, the owner must turn it off in Auth settings.
+- [ ] Activate email confirmation and verify real inbox delivery. Blocked: the hosted public settings report Auto-confirm email is on. The owner must turn it off under More → Users → Auth settings → Email; the available configuration tool would also overwrite security settings whose current values cannot be read.
