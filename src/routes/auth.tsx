@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { LockKeyhole, MailCheck } from 'lucide-react';
-import { requireConfirmedEmail } from '@/lib/account-rules';
+import { requireConfirmedEmail, requireValidPassword, MIN_PASSWORD_LENGTH } from '@/lib/account-rules';
 import { z } from 'zod';
 
 export const Route = createFileRoute('/auth')({
@@ -55,6 +55,7 @@ function Auth() {
         if (error) throw error;
         setMessage('Check your email for a password reset link.');
       } else if (mode === 'signup') {
+        requireValidPassword(password);
         const { data, error } = await supabase.auth.signUp({ email: address, password, options: { emailRedirectTo: `${window.location.origin}/auth` } });
         if (error) throw error;
         if (data.session) {
@@ -100,7 +101,7 @@ function Auth() {
     </div> : <>
     <form onSubmit={submit} className="mt-8 space-y-5">
       <label className="block space-y-2"><span>Email</span><Input type="email" autoComplete="email" required value={email} onChange={e => setEmail(e.target.value)} /></label>
-      {mode !== 'forgot' && <label className="block space-y-2"><span>Password</span><Input type="password" autoComplete={mode === 'login' ? 'current-password' : 'new-password'} minLength={8} required value={password} onChange={e => setPassword(e.target.value)} /></label>}
+       {mode !== 'forgot' && <label className="block space-y-2"><span>Password</span><Input type="password" autoComplete={mode === 'login' ? 'current-password' : 'new-password'} minLength={MIN_PASSWORD_LENGTH} required value={password} onChange={e => setPassword(e.target.value)} /></label>}
       {message && <p role="status" className="text-sm text-primary">{message}</p>}
       <Button disabled={busy} className="w-full">{busy ? 'Please wait…' : mode === 'login' ? 'Sign in' : mode === 'signup' ? 'Create account' : 'Send reset link'}</Button>
     </form>

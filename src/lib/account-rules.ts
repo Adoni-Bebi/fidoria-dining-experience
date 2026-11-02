@@ -1,3 +1,9 @@
+export const MIN_PASSWORD_LENGTH = 6;
+
+export function requireValidPassword(password: string) {
+  if (password.length < MIN_PASSWORD_LENGTH) throw new Error('Use a password with at least 6 characters.');
+}
+
 export function requireAccountOwner(isOwner: boolean) {
   if (!isOwner) throw new Error('Only the restaurant owner can manage accounts.');
 }

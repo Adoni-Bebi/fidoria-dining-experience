@@ -11,3 +11,5 @@
 - [x] Create admin requests only after verified email confirmation.
 - [x] Use standard verification emails for new accounts, with resend and confirmation-return messaging; keep admin approval after verification.
 - [ ] Activate email confirmation and verify real inbox delivery. Blocked: the hosted public settings report Auto-confirm email is on. The owner must turn it off under More → Users → Auth settings → Email; the available configuration tool would also overwrite security settings whose current values cannot be read.
+- [x] Apply and test the six-character minimum in signup, password change, and recovery forms.
+- [ ] Complete hosted password policy and verify real password acceptance. Blocked: the owner must set minimum length to 6, remove required character rules, and turn Password HIBP Check off under More → Users → Auth settings → Email; current unrelated settings are unavailable to safely use the combined configuration tool.

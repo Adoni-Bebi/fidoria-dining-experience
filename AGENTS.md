@@ -15,3 +15,4 @@
 - Private meal photos use signed viewing links, and storage write policies require the admin role because public buckets are blocked by workspace policy.
 - Account deletion is an authenticated server action that verifies the singleton owner before dynamically loading the privileged client; never allow owner self-deletion, and retain restaurant meals when deleting an admin.
 - Signup verification uses standard Cloud Auth confirmation links, and owner email handover uses Cloud Auth OTPs, never custom codes; approval requests are recorded by the Auth confirmation lifecycle trigger, and owner handover completes only after Auth reports the verified new email to prevent premature access.
+- Password forms share validation from account-rules so signup, recovery, and password changes enforce the same application rule; hosted password settings are configured separately.
