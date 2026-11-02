@@ -1,7 +1,14 @@
 import { describe, expect, it } from 'vitest';
-import { requireAccountOwner, requireDeletableAccount, requireConfirmedEmail, requireVerificationCode, requireVerifiedOwnerEmail } from '@/lib/account-rules';
+import { requireAccountOwner, requireDeletableAccount, requireConfirmedEmail, requireVerificationCode, requireVerifiedOwnerEmail, requireValidPassword } from '@/lib/account-rules';
 
 describe('Account permissions', () => {
+  it('accepts weak or strong passwords of six or more characters', () => {
+    expect(() => requireValidPassword('123456')).not.toThrow();
+    expect(() => requireValidPassword('aaaaaa')).not.toThrow();
+    expect(() => requireValidPassword('Longer$Password19')).not.toThrow();
+    expect(() => requireValidPassword('12345')).toThrow();
+    expect(() => requireValidPassword('')).toThrow();
+  });
   it('allows only the owner to manage accounts, not approved meal admins', () => {
     expect(() => requireAccountOwner(false)).toThrow();
     expect(() => requireAccountOwner(true)).not.toThrow();
