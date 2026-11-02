@@ -9,5 +9,5 @@
 - [x] Simplify signup, email confirmation, resend, and account deletion messages.
 - [x] Add emailed code entry for first-time signup and owner email handover.
 - [x] Create admin requests only after verified email confirmation.
-- [ ] Activate code emails and confirmation settings; verify signup and handover. Blocked: owner must disable Auto-confirm email in Auth settings and set up an owned sender domain for editable code-email templates; hosted settings and inbox delivery cannot currently be verified.
-- [ ] Enforce OTP before any account record exists, with six-digit ten-minute codes, resend cooldown, five requests per email per hour, and verification auditing. Blocked: standard Cloud Auth creates an inactive account before verification; code length and expiry have no agent setting tool.
+- [x] Use standard verification emails for new accounts, with resend and confirmation-return messaging; keep admin approval after verification.
+- [ ] Verify hosted email confirmation settings and real inbox delivery. Blocked: hosted confirmation settings cannot be read through available tools; if Auto-confirm email is enabled, the owner must turn it off in Auth settings.
